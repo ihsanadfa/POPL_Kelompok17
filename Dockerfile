@@ -1,10 +1,13 @@
-FROM nginx:alpine
+FROM golang:1.23.2-alpine
 
-COPY *.html /usr/share/nginx/html/
-COPY *.css /usr/share/nginx/html/
-COPY *.js /usr/share/nginx/html/
+WORKDIR /app
 
-ENV PORT 80
-EXPOSE 80
+COPY go.mod ./
+COPY *.go ./
+COPY static ./static
 
-CMD ["nginx", "-g", "daemon off;"]
+RUN go build -o /belajar-cicd-pemula
+
+EXPOSE 8080
+
+CMD ["/Perpustakaan"]
