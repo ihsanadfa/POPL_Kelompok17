@@ -37,6 +37,6 @@ func main() {
 		bukuCon,
 	)
 
-	app.Listen(":8000")
+	app.Listen(":8080")
 
 }
